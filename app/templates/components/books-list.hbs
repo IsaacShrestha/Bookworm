@@ -1,5 +1,8 @@
+{{! this component is not doing anything}}
 <div class="list-group">
-	{{#each books as |book|}}
-		<a class="list-group-item" href="">{{book.title}}</a>
+	{{#each model as |book|}}
+		{{#link-to 'books.book' book class="list-group-item"}}{{book.title}}{{/link-to}}
+		
 	{{/each}}
+	
 </div>

@@ -1,6 +1,12 @@
 <div class="row">
 	<div class="col-sm-4">
+		{{#each model as |book|}}
+			{{#link-to 'books.book' book class="list-group-item"}}{{book.title}}{{/link-to}}
+		{{/each}}
+		
 		{{books-list books=books}}
 	</div>
-	<div class="col-sm-4"></div>
+	<div class="col-sm-4">
+		{{outlet}}
+	</div>
 </div>
