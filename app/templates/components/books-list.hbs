@@ -1,7 +1,9 @@
 {{! this component is not doing anything}}
 <div class="list-group">
 	{{#each model as |book|}}
-		{{#link-to 'books.book' book class="list-group-item"}}{{book.title}}{{/link-to}}
+		{{#unless book.isNew}}
+			{{#link-to 'books.book' book class="list-group-item"}}{{book.title}}{{/link-to}}
+		{{/unless}}
 		
 	{{/each}}
 	

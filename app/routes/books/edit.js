@@ -10,11 +10,6 @@ export default Ember.Route.extend({
 	},
 
 	actions: {
-		updateBook: function(book) {
-			var _this = this;
-			book.save().then(function(book){
-				_this.transitionTo('books.book', book);
-			});
-		}
+		
 	}
 });

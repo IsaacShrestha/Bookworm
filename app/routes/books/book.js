@@ -10,11 +10,6 @@ export default Ember.Route.extend({
 	},
 
 	actions:{
-		deleteBook: function(book){
-			var _this = this;
-			book.destroyRecord().then(function() {
-				_this.transitionTo('books');
-			});
-		}
+		
 	}
 });
