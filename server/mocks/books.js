@@ -48,10 +48,22 @@ module.exports = function(app) {
     });
   });
 
-  booksRouter.put('/:id', function(req, res) {
+  booksRouter.patch('/:id', function(req, res) {
+    var bookAttrs = req.body.data.attributes;
+    var bookId = req.params('id');
+    books.forEach(function(item) {
+      if(item.id === parseInt(bookId)){
+        item.title = bookAttrs.title;
+        item.description = bookAttrs.description;
+        item.author = bookAttrs.author;
+      }
+    });
+
     res.send({
-      'books': {
-        id: req.params.id
+      data : {
+        type: 'books',
+        id: bookId,
+        attributes: bookAttrs
       }
     });
   });
