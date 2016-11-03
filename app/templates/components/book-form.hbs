@@ -1,6 +1,6 @@
 <h2>Add new book</h2>
 
-<form {{action 'submit'}} on='submit'>
+<form {{action 'submit' on='submit'}}>
 	<div class="form-group">
 		<label for="">Title</label>
 		{{input class="form-control" value=book.title}}
@@ -14,7 +14,7 @@
 	</div>
 	<div class="form-group">
 		<label for="">Description</label>
-		{{input class="form-control" value=book.description}}
+		{{textarea class="form-control" value=book.description}}
 		
 	</div>
 	<button class="btn btn-primary" type="submit">Add Book</button>

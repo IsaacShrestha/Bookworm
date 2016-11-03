@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-	model: function(){
+	model: function() {
 		return { title: '', author: '', description: ''};
 	},
 
@@ -11,7 +11,10 @@ export default Ember.Route.extend({
 
 	actions:{
 		createBook: function(book){
-			this.store.createRecord('book', book).save();
+			var _this = this;
+			this.store.createRecord('book', book).save().then(function(book){
+				_this.transitionTo('books.book', book);
+			});
 		}
 	}
 });
