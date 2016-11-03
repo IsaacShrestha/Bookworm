@@ -9,7 +9,7 @@ export default Ember.Component.extend({
 	actions:{
 		submit: function(){
 			//console.log(this.book);
-			this.sendAction('action', this.book);
+			this.sendAction('action', this.get('book'));
 		}
 	}
 });
