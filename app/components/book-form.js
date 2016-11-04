@@ -17,29 +17,39 @@ export default Ember.Component.extend({
 				this.sendAction('action', this.get('book'));
 			}
 			
+		},
+
+		validateTitle: function(value) {
+			this.validateTitle(value);
+		},
+
+		validateAuthor: function(value) {
+			this.validateAuthor(value);
 		}
 	},
 
 	validate: function() {
 		this.set('errors', DS.Errors.create());
+		this.validateTitle(this.get('book.title'));
+		this.validateAuthor(this.get('book.author'));
+	
+		return this.get('errors.isEmpty');
+	},
 
-		if(this.get('book.title') === '' || this.get('book.title') === undefined){
+	validateTitle: function(value) {
+		this.get('errors').remove('title'); //resetting all the pre existing errors for title
+		if(value === '' || value === undefined){
 			this.get('errors').add('title', "can't be empty");
 		}
+	},
 
-		if(this.get('book.description') === '' || this.get('book.description') === undefined){
-			this.get('errors').add('description', "can't be empty");
-		}
-
-		if(this.get('book.author') === '' || this.get('book.author') === undefined){
+	validateAuthor: function(value) {
+			this.get('errors').remove('author');
+			if(value === '' || value === undefined){
 			this.get('errors').add('author', "can't be empty");
+			}
 		}
 
 
-		
-
-
-		return this.get('errors.isEmpty');
-	}
 
 });
