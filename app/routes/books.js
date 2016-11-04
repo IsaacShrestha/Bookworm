@@ -14,19 +14,9 @@ export default Ember.Route.extend({
 			});
 		},
 
-		updateBook: function(book) {
-			var _this = this;
-			book.save().then(function(book){
-				_this.transitionTo('books.book', book);
-			});
-		},
+		
 
-		createBook: function(book){
-			var _this = this;
-			 book.save().then(function(book){
-				_this.transitionTo('books.book', book);
-			});
-		}
+		
 	}
 	
 });

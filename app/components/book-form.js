@@ -4,8 +4,7 @@ import DS from 'ember-data';
 
 
 export default Ember.Component.extend({
-	errors: DS.Errors.create(),
-
+	
 	buttonLabel: function() {
 		return (this.get('book').id) ? 'Update Book' : 'Add Book';
 	}.property(),
