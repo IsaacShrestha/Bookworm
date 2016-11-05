@@ -12,6 +12,7 @@ export default Ember.Route.extend({
 	actions: {
 		authenticate: function(credentials) {
 			console.log(credentials);
+			//this.get('session').authenticate('', credentials);
 		}
 	}
 });

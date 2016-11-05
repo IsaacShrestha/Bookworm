@@ -16,10 +16,15 @@
       <ul class="nav navbar-nav">
         {{#link-to 'books' tagName="li"}}<a href>Books</a>{{/link-to}}
       </ul>
-     <ul class="nav navbar-nav navbar-right">
-        {{#link-to 'login' tagName="li"}}<a href>Log in</a>{{/link-to}}
-     </ul>
-     
+
+
+      {{#if session.isAuthenticated}}
+            <button {{action 'logout'}}>Logout</button>
+        {{else}}
+            <ul class="nav navbar-nav navbar-right">
+                    {{#link-to 'login' tagName="li"}}<a href>Log in</a>{{/link-to}}
+            </ul>
+     {{/if}}
     </div><!-- /.navbar-collapse -->
   
 </nav>
